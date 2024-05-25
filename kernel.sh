@@ -65,7 +65,7 @@ DEVICE="flame"
 
 # The defconfig which should be used. Get it from config.gz from
 # your device or check source
-DEFCONFIG=floral_defconfig
+DEFCONFIG=floral-new_defconfig
 
 # Specify compiler.
 # 'clang' or 'gcc'
