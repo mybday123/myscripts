@@ -97,7 +97,7 @@ FILES=Image.gz-dtb
 
 # Build dtbo.img (select this only if your source has support to building dtbo.img)
 # 1 is YES | 0 is NO(default)
-BUILD_DTBO=1
+BUILD_DTBO=0
 if [ $BUILD_DTBO = 1 ]
 then
 	# Set this to your dtbo path.
@@ -212,16 +212,16 @@ DATE=$(TZ=Asia/Kolkata date +"%Y%m%d-%T")
 
 exports()
 {
-	KBUILD_BUILD_USER=$AUTHOR
+	# KBUILD_BUILD_USER=$AUTHOR
 	SUBARCH=$ARCH
 
 	if [ $COMPILER = "clang" ]
 	then
-		KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
+		# KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 		PATH=$TC_DIR/bin/:$PATH
 	elif [ $COMPILER = "gcc" ]
 	then
-		KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-elf-gcc --version | head -n 1)
+		# KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-elf-gcc --version | head -n 1)
 		PATH=$GCC64_DIR/bin/:$GCC32_DIR/bin/:/usr/bin:$PATH
 	fi
 
@@ -229,8 +229,8 @@ exports()
 	BOT_BUILD_URL="https://api.telegram.org/bot$token/sendDocument"
 	PROCS=$(nproc --all)
 
-	export KBUILD_BUILD_USER ARCH SUBARCH PATH \
-		KBUILD_COMPILER_STRING BOT_MSG_URL \
+	export  SUBARCH PATH \
+		BOT_MSG_URL \
 		BOT_BUILD_URL PROCS
 }
 
