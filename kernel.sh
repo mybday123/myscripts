@@ -48,31 +48,31 @@ KERNEL_DIR="$(pwd)"
 BASEDIR="$(basename "$KERNEL_DIR")"
 
 # The name of the Kernel, to name the ZIP
-ZIPNAME="azure"
+ZIPNAME="openela"
 
 # Build Author
 # Take care, it should be a universal and most probably, case-sensitive
-AUTHOR="Panchajanya1999"
+AUTHOR="mybday123"
 
 # Architecture
 ARCH=arm64
 
 # The name of the device for which the kernel is built
-MODEL="Redmi Note 7 Pro"
+MODEL="Google Pixel 4"
 
 # The codename of the device
-DEVICE="violet"
+DEVICE="flame"
 
 # The defconfig which should be used. Get it from config.gz from
 # your device or check source
-DEFCONFIG=vendor/violet-perf_defconfig
+DEFCONFIG=floral_defconfig
 
 # Specify compiler.
 # 'clang' or 'gcc'
-COMPILER=gcc
+COMPILER=clang
 
 # Build modules. 0 = NO | 1 = YES
-MODULES=0
+MODULES=1
 
 # Specify linker.
 # 'ld.lld'(default)
@@ -82,7 +82,7 @@ LINKER=ld.lld
 INCREMENTAL=1
 
 # Push ZIP to Telegram. 1 is YES | 0 is NO(default)
-PTTG=1
+PTTG=0
 if [ $PTTG = 1 ]
 then
 	# Set Telegram Chat ID
@@ -107,7 +107,7 @@ fi
 
 # Sign the zipfile
 # 1 is YES | 0 is NO
-SIGN=1
+SIGN=0
 if [ $SIGN = 1 ]
 then
 	#Check for java
