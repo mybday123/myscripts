@@ -229,7 +229,8 @@ exports()
 	BOT_BUILD_URL="https://api.telegram.org/bot$token/sendDocument"
 	PROCS=$(nproc --all)
 
-	export  ARCH SUBARCH PATH \
+	export  ARCH=arm64
+ 	export  ARCH SUBARCH PATH \
 		BOT_MSG_URL \
 		BOT_BUILD_URL PROCS
 }
